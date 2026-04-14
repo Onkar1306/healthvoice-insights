@@ -27,6 +27,13 @@ export const speechApi = {
     });
   },
   getTopQuestions: () => api.get<string[]>("/speech/top-questions"),
+  getDashboard: () =>
+    api.get<{
+      totalAnalysis: number;
+      averageAgentScore: number;
+      topQuestionsCount: number;
+      totalAudios: number;
+    }>("/speech/dashboard"),
 };
 
 export default api;
