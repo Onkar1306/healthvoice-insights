@@ -84,7 +84,7 @@ export default function UploadAudio() {
     try {
       const res = await speechApi.transcribe(file);
       setResult(res.data);
-      toast.success("Analysis complete!");
+      localStorage.setItem("analysisResult", JSON.stringify(res.data));
     } catch (err: any) {
       toast.error(err?.response?.data?.message || "Analysis failed. Please try again.");
     } finally {
