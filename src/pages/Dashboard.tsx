@@ -15,7 +15,7 @@ interface DashboardData {
 const container = { hidden: {}, show: { transition: { staggerChildren: 0.1 } } };
 const item = {
   hidden: { opacity: 0, y: 24, scale: 0.95 },
-  show: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 300, damping: 24 } },
+  show: { opacity: 1, y: 0, scale: 1, transition: { type: "spring" as const, stiffness: 300, damping: 24 } },
 };
 
 export default function Dashboard() {
