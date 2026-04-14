@@ -58,7 +58,10 @@ export default function UploadAudio() {
   const [file, setFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
   const [dragOver, setDragOver] = useState(false);
-  const [result, setResult] = useState<AnalysisResult | null>(null);
+  const [result, setResult] = useState<AnalysisResult | null>(() => {
+    const stored = localStorage.getItem("analysisResult");
+    return stored ? JSON.parse(stored) : null;
+  });
 
   const handleFile = useCallback((f: File) => {
     if (!f.type.startsWith("audio/")) {
@@ -81,7 +84,7 @@ export default function UploadAudio() {
     try {
       const res = await speechApi.transcribe(file);
       setResult(res.data);
-      toast.success("Analysis complete!");
+      localStorage.setItem("analysisResult", JSON.stringify(res.data));
     } catch (err: any) {
       toast.error(err?.response?.data?.message || "Analysis failed. Please try again.");
     } finally {
