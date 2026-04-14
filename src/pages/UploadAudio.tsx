@@ -58,7 +58,10 @@ export default function UploadAudio() {
   const [file, setFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
   const [dragOver, setDragOver] = useState(false);
-  const [result, setResult] = useState<AnalysisResult | null>(null);
+  const [result, setResult] = useState<AnalysisResult | null>(() => {
+    const stored = localStorage.getItem("analysisResult");
+    return stored ? JSON.parse(stored) : null;
+  });
 
   const handleFile = useCallback((f: File) => {
     if (!f.type.startsWith("audio/")) {
