@@ -11,6 +11,7 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import UploadAudio from "./pages/UploadAudio";
 import TopQuestions from "./pages/TopQuestions";
+import HistoryPage from "./pages/History";
 import DashboardLayout from "./components/DashboardLayout";
 import NotFound from "./pages/NotFound";
 
@@ -32,6 +33,7 @@ const App = () => (
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/upload" element={<UploadAudio />} />
                 <Route path="/top-questions" element={<TopQuestions />} />
+                <Route path="/history" element={<HistoryPage />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>

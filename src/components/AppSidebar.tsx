@@ -1,4 +1,4 @@
-import { LayoutDashboard, Upload, HelpCircle, LogOut, Activity } from "lucide-react";
+import { LayoutDashboard, Upload, HelpCircle, LogOut, Activity, History } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
@@ -18,6 +18,7 @@ const navItems = [
   { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
   { title: "Upload Audio", url: "/upload", icon: Upload },
   { title: "Top Questions", url: "/top-questions", icon: HelpCircle },
+  { title: "History", url: "/history", icon: History },
 ];
 
 export function AppSidebar() {
