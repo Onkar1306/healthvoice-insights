@@ -34,6 +34,18 @@ export const speechApi = {
       topQuestionsCount: number;
       totalAudios: number;
     }>("/speech/dashboard"),
+  getHistory: () =>
+    api.get<Array<{
+      id: number;
+      transcript: string;
+      sentiment: string;
+      agentScore: number;
+      accuracy: number;
+      commonQuestions: string;
+      alerts: string;
+      fileName: string;
+      createdAt: string;
+    }>>("/speech/history"),
 };
 
 export default api;
